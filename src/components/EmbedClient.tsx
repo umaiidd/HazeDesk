@@ -11,7 +11,7 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
 
   const firstLetter = email ? email[0].toUpperCase() : null;
 
-  const embedScript = `<script\n  src="http://localhost:3000/chatBot.js"\n  data-owner-id="${ownerId}"\n></script>`;
+ const embedScript = `<script\n  src="${process.env.NEXT_PUBLIC_APP_URL}/chatBot.js"\n  data-owner-id="${ownerId}"\n></script>`;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
