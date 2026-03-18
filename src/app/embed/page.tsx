@@ -1,14 +1,15 @@
+// src/app/embed/page.tsx
 import EmbedClient from '@/components/EmbedClient'
 import { getSession } from '@/lib/getSession'
-import React from 'react'
 
-const page =  async () => {
-    const session =await getSession()
+export default async function page() {
+  const session = await getSession()
   return (
     <div>
-      <EmbedClient ownerId={session?.user?.id!}/>
+      <EmbedClient
+        ownerId={session?.user?.id ?? ""}
+        email={session?.user?.email ?? ""}
+      />
     </div>
   )
 }
-
-export default page
