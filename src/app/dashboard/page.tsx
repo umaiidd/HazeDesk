@@ -8,7 +8,7 @@ const session = await getSession()
 
   return (
     <div>
-      <DashboardClient ownerId={session?.user?.id!}/>
+      <DashboardClient ownerId={session?.user?.id!} email={session?.user?.email!}/>
     </div>
   )
 }
