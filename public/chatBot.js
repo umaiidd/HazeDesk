@@ -1,6 +1,6 @@
 (function () {
 
-  const API_URL = "http://localhost:3000/api/chat";
+  const API_URL = "https://haze-desk.vercel.app/api/chat";
 
   const scriptTag = document.currentScript;
   const ownerId = scriptTag && scriptTag.getAttribute("data-owner-id");
