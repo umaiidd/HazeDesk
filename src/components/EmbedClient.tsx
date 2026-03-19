@@ -11,7 +11,7 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
 
   const firstLetter = email ? email[0].toUpperCase() : null;
 
- const embedScript = `<script\n  src="https://haze-desk.vercel.app/chatBot.js"\n  data-owner-id="${ownerId}"\n></script>`;
+  const embedScript = `<script\n  src="https://haze-desk.vercel.app/chatBot.js"\n  data-owner-id="${ownerId}"\n></script>`;
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -35,8 +35,8 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const handleLogout   = () => { window.location.href = "/api/auth/logout"; };
-  const handleHome     = () => { window.location.href = "/"; };
+  const handleLogout    = () => { window.location.href = "/api/auth/logout"; };
+  const handleHome      = () => { window.location.href = "/"; };
   const handleDashboard = () => { window.location.href = "/dashboard"; };
 
   return (
@@ -63,10 +63,7 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
         }`}>
 
           {/* Logo */}
-          <div
-            onClick={handleHome}
-            className="flex items-baseline gap-1.5 cursor-pointer group"
-          >
+          <div onClick={handleHome} className="flex items-baseline gap-1.5 cursor-pointer group">
             <span className="text-[16px] font-semibold text-gray-800 tracking-[-0.4px] group-hover:text-black transition-colors duration-200">
               Haze Desk
             </span>
@@ -77,7 +74,6 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
 
           {/* Right side */}
           <div className="flex items-center gap-3">
-            {/* Back to Dashboard button */}
             <button
               onClick={handleDashboard}
               className="text-[13px] font-medium text-gray-700 hover:text-gray-900 bg-white hover:bg-gray-50 border border-gray-200 hover:border-gray-300 rounded-xl px-3 sm:px-4 py-2 transition-all duration-200 active:scale-95 flex items-center gap-2"
@@ -91,7 +87,6 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
               <span className="hidden sm:inline">Back to Dashboard</span>
             </button>
 
-            {/* Avatar dropdown */}
             <div className="relative" ref={dropdownRef}>
               {firstLetter && (
                 <>
@@ -170,7 +165,7 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
             {/* Code Block */}
             <div className="relative bg-gray-900 rounded-xl overflow-hidden">
               <pre className="text-[11px] sm:text-[13.5px] font-mono text-gray-200 leading-relaxed p-4 sm:p-5 pr-24 sm:pr-28 overflow-x-auto whitespace-pre">
-                {`<script\n  src="http://localhost:3000/chatBot.js"\n  data-owner-id="${ownerId}"\n></script>`}
+                {embedScript}
               </pre>
               <button
                 onClick={handleCopy}
@@ -214,7 +209,6 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
 
               {/* Browser mockup */}
               <div className="border border-gray-200 rounded-xl overflow-hidden">
-                {/* Browser chrome */}
                 <div className="bg-gray-50 border-b border-gray-200 px-4 py-2.5 flex items-center gap-2.5">
                   <div className="flex gap-1.5">
                     {["#ff5f57", "#ffbd2e", "#28ca41"].map((c, i) => (
@@ -224,11 +218,9 @@ const EmbedClient = ({ ownerId, email }: { ownerId: string; email: string }) => 
                   <span className="text-[12px] text-gray-400 font-mono">Your-website.com</span>
                 </div>
 
-                {/* Website body */}
                 <div className="bg-gray-50 h-64 relative p-5">
                   <p className="text-[13px] text-gray-300">Your website goes here</p>
 
-                  {/* Chat widget */}
                   <div className="absolute bottom-4 right-4 flex flex-col items-end gap-2.5">
                     <div className="bg-white rounded-2xl shadow-lg w-44 sm:w-56 overflow-hidden border border-gray-100">
                       <div className="bg-gray-900 px-4 py-2.5 flex items-center justify-between">
